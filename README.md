@@ -35,19 +35,32 @@ limitations under the License.
 
 > Create a factory function for filling strided arrays with pseudorandom values drawn from a binary PRNG.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/random-strided-tools-binary-factory
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import binaryFactory from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-strided-tools-binary-factory@esm/index.mjs';
-```
-The previous example will load the latest bundled code from the esm branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/random-strided-tools-binary-factory/tags). For example,
-
-```javascript
-import binaryFactory from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-strided-tools-binary-factory@v0.2.2-esm/index.mjs';
+var binaryFactory = require( '@stdlib/random-strided-tools-binary-factory' );
 ```
 
 #### binaryFactory( prng )
@@ -55,7 +68,7 @@ import binaryFactory from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-strided-
 Returns a factory function for filling strided arrays with pseudorandom values drawn from a binary PRNG.
 
 ```javascript
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -72,7 +85,7 @@ The function has the following parameters:
 Returns a function for filling strided arrays with pseudorandom values drawn from a binary PRNG.
 
 ```javascript
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -95,9 +108,9 @@ The function supports the following options:
 To use a custom PRNG as the underlying source of uniformly distributed pseudorandom numbers, set the `prng` option.
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
-import minstd from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd@esm/index.mjs';
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var Float64Array = require( '@stdlib/array-float64' );
+var minstd = require( '@stdlib/random-base-minstd' );
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -116,8 +129,8 @@ random( out.length, [ 2.0 ], 0, [ 5.0 ], 0, out, 1 );
 To seed the underlying pseudorandom number generator, set the `seed` option.
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var Float64Array = require( '@stdlib/array-float64' );
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -140,8 +153,8 @@ random( out.length, [ 2.0 ], 0, [ 5.0 ], 0, out, 1 );
 Fills a strided array with pseudorandom values drawn from a binary PRNG.
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var Float64Array = require( '@stdlib/array-float64' );
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -169,8 +182,8 @@ The function has the following parameters:
 The `N` and stride parameters determine which strided array elements are accessed at runtime. For example, to access every other value in `out`,
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var Float64Array = require( '@stdlib/array-float64' );
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -188,8 +201,8 @@ Note that indexing is relative to the first index. To introduce an offset, use [
 <!-- eslint-disable stdlib/capitalized-comments -->
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var Float64Array = require( '@stdlib/array-float64' );
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -217,8 +230,8 @@ random( out.length, view1, -1, view2, 1, out, 1 );
 Fills a strided array with pseudorandom values drawn from a binary PRNG using alternative indexing semantics.
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var Float64Array = require( '@stdlib/array-float64' );
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -242,7 +255,7 @@ The function has the following additional parameters:
 While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying `buffer`, the offset parameters support indexing semantics based on starting indices. For example, to access every other value in `out` starting from the second value,
 
 ```javascript
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -262,7 +275,7 @@ random.ndarray( 3, [ 2.0 ], 0, 0, [ 5.0 ], 0, 0, out, 2, 1 );
 The underlying pseudorandom number generator.
 
 ```javascript
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -279,7 +292,7 @@ var prng = random.PRNG;
 The value used to seed the underlying pseudorandom number generator.
 
 ```javascript
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -294,8 +307,8 @@ var seed = random.seed;
 If the `factory` function is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -314,7 +327,7 @@ var seed = random.seed;
 Length of underlying pseudorandom number generator seed.
 
 ```javascript
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -329,8 +342,8 @@ var len = random.seedLength;
 If the `factory` function is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -349,7 +362,7 @@ var len = random.seedLength;
 Writable property for getting and setting the underlying pseudorandom number generator state.
 
 ```javascript
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -364,8 +377,8 @@ var state = random.state;
 If the `factory` function is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -384,7 +397,7 @@ var state = random.state;
 Length of underlying pseudorandom number generator state.
 
 ```javascript
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -399,8 +412,8 @@ var len = random.stateLength;
 If the `factory` function is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -419,7 +432,7 @@ var len = random.stateLength;
 Size (in bytes) of underlying pseudorandom number generator state.
 
 ```javascript
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -434,8 +447,8 @@ var sz = random.byteLength;
 If the `factory` function is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
+var arcsine = require( '@stdlib/random-base-arcsine' );
 
 var factory = binaryFactory( arcsine );
 // returns <Function>
@@ -467,17 +480,12 @@ var sz = random.byteLength;
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-arcsine@esm/index.mjs';
-import zeros from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-zeros@esm/index.mjs';
-import zeroTo from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-zero-to@esm/index.mjs';
-import logEach from 'https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each@esm/index.mjs';
-import binaryFactory from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-strided-tools-binary-factory@esm/index.mjs';
+```javascript
+var arcsine = require( '@stdlib/random-base-arcsine' );
+var zeros = require( '@stdlib/array-zeros' );
+var zeroTo = require( '@stdlib/array-zero-to' );
+var logEach = require( '@stdlib/console-log-each' );
+var binaryFactory = require( '@stdlib/random-strided-tools-binary-factory' );
 
 // Create a PRNG factory function:
 var factory = binaryFactory( arcsine );
@@ -513,10 +521,6 @@ var idx = zeroTo( x1.length, 'generic' );
 
 // Print the array contents:
 logEach( 'x1[%d] = %.2f; x2[%d] = %.2f', idx, x1, idx, x2 );
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -540,7 +544,7 @@ logEach( 'x1[%d] = %.2f; x2[%d] = %.2f', idx, x1, idx, x2 );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -570,8 +574,8 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 [npm-image]: http://img.shields.io/npm/v/@stdlib/random-strided-tools-binary-factory.svg
 [npm-url]: https://npmjs.org/package/@stdlib/random-strided-tools-binary-factory
 
-[test-image]: https://github.com/stdlib-js/random-strided-tools-binary-factory/actions/workflows/test.yml/badge.svg?branch=v0.2.2
-[test-url]: https://github.com/stdlib-js/random-strided-tools-binary-factory/actions/workflows/test.yml?query=branch:v0.2.2
+[test-image]: https://github.com/stdlib-js/random-strided-tools-binary-factory/actions/workflows/test.yml/badge.svg?branch=main
+[test-url]: https://github.com/stdlib-js/random-strided-tools-binary-factory/actions/workflows/test.yml?query=branch:main
 
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/random-strided-tools-binary-factory/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/random-strided-tools-binary-factory?branch=main
